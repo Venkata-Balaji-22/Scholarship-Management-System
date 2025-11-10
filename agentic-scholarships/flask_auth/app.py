@@ -2,13 +2,14 @@ from flask import Flask, render_template, request, redirect, make_response, url_
 from passlib.hash import bcrypt_sha256
 from sqlalchemy.orm import Session
 import jwt
+import os
 from datetime import datetime, timedelta
 
 from shared.db import Base, engine, SessionLocal
 from shared.models import User
 from shared.config import SECRET_KEY, JWT_SECRET, FLASK_PORT
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder=os.path.join(os.path.dirname(__file__), 'templates'))
 app.secret_key = SECRET_KEY
 
 # Ensure tables
@@ -76,12 +77,14 @@ def success():
 def ui():
     # Serve the static frontend index
     from flask import send_from_directory
-    return send_from_directory("..\\frontend", "index.html")
+    frontend_dir = os.path.join(os.path.dirname(__file__), "..", "frontend")
+    return send_from_directory(frontend_dir, "index.html")
 
 @app.get("/ui/<path:path>")
 def ui_assets(path: str):
     from flask import send_from_directory
-    return send_from_directory("..\\frontend", path)
+    frontend_dir = os.path.join(os.path.dirname(__file__), "..", "frontend")
+    return send_from_directory(frontend_dir, path)
 
 if __name__ == "__main__":
     app.run(port=FLASK_PORT, debug=True)

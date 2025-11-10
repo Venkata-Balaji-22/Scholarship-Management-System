@@ -1,4 +1,4 @@
-const apiBase = 'http://127.0.0.1:8001';
+const apiBase = 'http://127.0.0.1:8000';
 
 function getCookie(name){
   const value = `; ${document.cookie}`;
@@ -17,14 +17,14 @@ async function fetchWithAuth(url, options={}) {
   });
   if (res.status === 401) {
     alert('Please login first (opens in new tab).');
-    window.open('http://127.0.0.1:5001/login', '_blank');
+    window.open('http://127.0.0.1:5000/login', '_blank');
     throw new Error('Unauthorized');
   }
   return res;
 }
 
 document.getElementById('logoutBtn').addEventListener('click', () => {
-  window.open('http://127.0.0.1:5001/logout', '_blank');
+  window.open('http://127.0.0.1:5000/logout', '_blank');
 });
 
 document.getElementById('scholarshipForm').addEventListener('submit', async (e) => {
