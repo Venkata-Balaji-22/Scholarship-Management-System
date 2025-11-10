@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scholarship Opportunities - Agentic AI</title>
+  <link rel="stylesheet" href="/ui/styles.css" />
+</head>
+<body>
+  <div class="bg"></div>
+  <header class="nav">
+    <div class="brand">Scholarship Finder</div>
+    <nav>
+      <a href="/login" target="_blank">Login</a>
+      <a href="/register" target="_blank">Register</a>
+      <button id="logoutBtn">Logout</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Discover scholarships tailored to you</h1>
+      <p>Enter your academic details and let our Agentic AI recommend relevant opportunities.</p>
+    </section>
+
+    <section class="card">
+      <form id="scholarshipForm">
+        <div class="grid">
+          <div>
+            <label>Track</label>
+            <select name="track" required>
+              <option value="engineering">Engineering (B.Tech)</option>
+              <option value="intermediate">Intermediate</option>
+            </select>
+          </div>
+          <div>
+            <label>10th CGPA</label>
+            <input type="number" step="0.01" name="tenth_cgpa" placeholder="e.g., 8.5" required />
+          </div>
+          <div>
+            <label>Intermediate CGPA</label>
+            <input type="number" step="0.01" name="inter_cgpa" placeholder="e.g., 8.2" required />
+          </div>
+          <div>
+            <label>B.Tech CGPA</label>
+            <input type="number" step="0.01" name="btech_cgpa" placeholder="e.g., 7.9" />
+          </div>
+          <div>
+            <label>Annual Family Income (INR)</label>
+            <input type="number" name="family_income" placeholder="e.g., 800000" required />
+          </div>
+          <div>
+            <label>Category</label>
+            <select name="category" required>
+              <option>GEN</option>
+              <option>OBC</option>
+              <option>SC</option>
+              <option>ST</option>
+            </select>
+          </div>
+          <div>
+            <label>State</label>
+            <input name="state" placeholder="e.g., TS, AP, ALL" required />
+          </div>
+          <div>
+            <label>Use LLM Summary</label>
+            <select name="use_llm">
+              <option value="false" selected>No</option>
+              <option value="true">Yes</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit">Find Scholarships</button>
+      </form>
+    </section>
+
+    <section class="card" id="results">
+      <h2>Results</h2>
+      <div id="llm"></div>
+      <div id="list"></div>
+    </section>
+  </main>
+
+  <footer class="footer">Built with FastAPI, Flask, and LangChain</footer>
+  <script src="/ui/app.js"></script>
+</body>
+</html>

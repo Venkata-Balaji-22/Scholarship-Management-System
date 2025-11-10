@@ -1,0 +1,123 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  background: #0b1020;
+  color: #e5e7eb;
+}
+
+.bg {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(1200px 400px at 20% 10%, #6EE7B7 0%, transparent 60%),
+    radial-gradient(1000px 400px at 80% 30%, #60A5FA 0%, transparent 60%),
+    radial-gradient(900px 300px at 40% 80%, #F472B6 0%, transparent 60%),
+    url("https://media.istockphoto.com/id/1409884313/vector/design-of-outstanding-students-fill-out-scholarship-application-form-reduced-tuition-fees.jpg?s=612x612&w=0&k=20&c=tQw0lLke7GcjO9F0Lb9rtSYhXtDaZ3OAzNYSryqTg9k=") no-repeat center center/cover,
+    #0B1020;
+  filter: blur(40px);
+  z-index: -1;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  position: sticky;
+  top: 0;
+  background: rgba(11, 16, 32, .6);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+.brand {
+  font-weight: 800;
+  background: linear-gradient(135deg, #60A5FA, #34D399);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.nav a, .nav button {
+  margin-left: 12px;
+  color: #cbd5e1;
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, .12);
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.container {
+  max-width: 980px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.card {
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, .4);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+label {
+  font-size: 12px;
+  color: #c7d2fe;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, .2);
+  background: rgba(0, 0, 0, .3);
+  color: #fff;
+  margin-top: 6px;
+}
+
+button[type=submit] {
+  margin-top: 12px;
+  width: 100%;
+  padding: 12px;
+  border: 0;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #60A5FA, #34D399);
+  color: #0b1020;
+  font-weight: 800;
+}
+
+#list a {
+  color: #93c5fd;
+}
+
+.footer {
+  text-align: center;
+  padding: 24px;
+  color: #9ca3af;
+}
+
+@media (max-width: 840px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

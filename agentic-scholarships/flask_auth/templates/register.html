@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register</title>
+  <style>
+    body { margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; color:#fff; }
+    .bg { position:fixed; inset:0; background: radial-gradient(1200px 400px at 20% 10%, #6EE7B7 0%, transparent 60%),
+                                   radial-gradient(1000px 400px at 80% 30%, #60A5FA 0%, transparent 60%),
+                                   radial-gradient(900px 300px at 40% 80%, #F472B6 0%, transparent 60%),
+                                   #0B1020; filter: blur(40px); }
+    .container { position:relative; min-height:100vh; display:flex; align-items:center; justify-content:center; }
+    .card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 32px; width: 380px; backdrop-filter: blur(12px); box-shadow: 0 10px 40px rgba(0,0,0,0.4); }
+    h1 { margin:0 0 16px; font-size: 22px; }
+    label { font-size: 12px; color: #C7D2FE; }
+    input { width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color:#fff; margin-top:6px; }
+    button { width:100%; margin-top:16px; padding:12px; border:0; border-radius:10px; background: linear-gradient(135deg,#60A5FA,#34D399); color:#0b1020; font-weight:700; cursor:pointer; }
+    .error { color:#FCA5A5; margin-top:8px; }
+    .link { display:block; text-align:center; margin-top:12px; color:#93C5FD; text-decoration:none; }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="container">
+    <div class="card">
+      <h1>Create account</h1>
+      <form method="POST" action="/register">
+        <label>Name</label>
+        <input type="text" name="name" placeholder="Your name" required />
+        <label style="margin-top:10px;">Email</label>
+        <input type="email" name="email" placeholder="you@example.com" required />
+        <label style="margin-top:10px;">Password</label>
+        <input type="password" name="password" placeholder="••••••••" required />
+        <button type="submit">Sign Up</button>
+        {% if error %}<div class="error">{{ error }}</div>{% endif %}
+      </form>
+      <a class="link" href="/login">Back to login</a>
+    </div>
+  </div>
+</body>
+</html>
