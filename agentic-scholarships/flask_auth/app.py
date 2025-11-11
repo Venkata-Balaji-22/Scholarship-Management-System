@@ -9,7 +9,10 @@ from shared.db import Base, engine, SessionLocal
 from shared.models import User
 from shared.config import SECRET_KEY, JWT_SECRET, FLASK_PORT
 
-app = Flask(__name__, template_folder=os.path.join(os.path.dirname(__file__), 'templates'))
+app = Flask(__name__, 
+            template_folder=os.path.join(os.path.dirname(__file__), 'templates'),
+            static_folder=os.path.join(os.path.dirname(__file__), '../frontend'),
+            static_url_path='/static')
 app.secret_key = SECRET_KEY
 
 # Ensure tables
